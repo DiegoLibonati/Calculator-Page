@@ -1,89 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="estilos.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
-    <title>Calculadora</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap"
+      rel="stylesheet"
+    />
+    <title>Calculadora page</title>
+  </head>
 
-<body>
+  <body>
+    <main class="main_container">
+      <section class="mirror_container">
+        <article class="mirror_container_window">0</article>
+      </section>
 
+      <section class="buttons_container">
+        <article class="button red-button" id="ac">AC</article>
+        <article class="button red-button" id="ce">CE</article>
+        <article class="button" id="x">X</article>
+        <article class="button" id="%">%</article>
+        <article class="button" id="/">/</article>
+        <article class="button" id="1">1</article>
+        <article class="button" id="2">2</article>
+        <article class="button" id="3">3</article>
+        <article class="button" id="=">=</article>
+        <article class="button" id="-">-</article>
+        <article class="button" id="4">4</article>
+        <article class="button" id="5">5</article>
+        <article class="button" id="6">6</article>
+        <article class="button" id=".">.</article>
+        <article class="button plus-button" id="+">+</article>
+        <article class="button" id="7">7</article>
+        <article class="button" id="8">8</article>
+        <article class="button" id="9">9</article>
+        <article class="button" id="0">0</article>
+      </section>
+    </main>
 
-    <header class="header_container">
-        <div>
-            <h2>DiegoLibonati</h2>
-        </div>
-
-        <div>
-            <h2>Calculator</h2>
-        </div>
-    </header>
-
-    <section class="section_container">
-
-        <div class="pantalla_container">
-            <p></p>
-
-            <form>
-                <input type="text" placeholder="0">
-            </form>
-
-        </div>
-
-        <div class="btns_container">
-            <div class="fila5">
-                <button type="button" data-id="porcentaje">%</button>
-                <button type="button" data-id="ce">CE</button>
-                <button type="button" data-id="c">C</button>
-                <button type="button" data-id="delete">Del</button>
-            </div>
-
-            <div class="fila4">
-                <button type="button" data-id="fraccion">1/x</button>
-                <button type="button" data-id="exponente">x2</button>
-                <button type="button" data-id="raizCuadrada">R2</button>
-                <button type="button" data-id="division">/</button>
-            </div>
-
-            <div class="fila3">
-                <button type="button" data-id="7">7</button>
-                <button type="button" data-id="8">8</button>
-                <button type="button" data-id="9">9</button>
-                <button type="button" data-id="multiplicacion">X</button>
-            </div>
-
-            <div class="fila2">
-                <button type="button" data-id="4">4</button>
-                <button type="button" data-id="5">5</button>
-                <button type="button" data-id="6">6</button>
-                <button type="button" data-id="resta">-</button>
-            </div>
-
-            <div class="fila1">
-                <button type="button" data-id="1">1</button>
-                <button type="button" data-id="2">2</button>
-                <button type="button" data-id="3">3</button>
-                <button type="button" data-id="suma">+</button>
-            </div>
-
-            <div class="fila0">
-                <button type="button" data-id="masmenos">+/-</button>
-                <button type="button" data-id="0">0</button>
-                <button type="button" data-id=".">,</button>
-                <button type="button" data-id="resultado">=</button>
-            </div>
-
-
-        </div>
-
-    </section>
-
-   <script src="main.js"></script> 
-</body>
-
+    <script src="main.js"></script>
+  </body>
 </html>
