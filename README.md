@@ -15,7 +15,7 @@
 
 ## Description
 
-I made a web page that is a calculator. This calculator has many features such as: You can do percentage, ce function, c function, del function, fraction function, exponent function, root function, function +/-, allows the operation between integers and decimals and between themselves, sum, subtract, division, multiplication, result, double display.
+I made a web page that has a calculator to use. This calculator can add, subtract, multiply and divide. You can also get percentages, use negative numbers, decimal numbers and finally you can perform actions like `CE` and `AC`.
 
 ## Technologies used
 
@@ -25,13 +25,15 @@ I made a web page that is a calculator. This calculator has many features such a
 
 ## Galery
 
-![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS-0.jpg)
+![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS2-0.jpg)
 
-![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS-1.jpg)
+![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS2-1.jpg)
 
-![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS-2.jpg)
+![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS2-2.jpg)
 
-![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS-3.jpg)
+![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS2-3.jpg)
+
+![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS2-4.jpg)
 
 ## Portfolio Link
 
@@ -39,6 +41,188 @@ I made a web page that is a calculator. This calculator has many features such a
 
 ## Video
 
+## Documentation
 
-https://user-images.githubusercontent.com/99032604/198900531-3c2a02db-c47a-4f0d-9fb2-69c4aa942570.mp4
+In `windowCalculator` we get the screen where the numbers, results etc. will be displayed:
 
+```
+const windowCalculator = document.querySelector(".mirror_container_window");
+```
+
+In `btnsCalculator` we obtain all the buttons with which we are going to execute actions of the calculator:
+
+```
+const btnsCalculator = document.querySelectorAll(".button");
+```
+
+The `userUseComa` variable will allow us to decide when the user will be able to use comma or not. The `resultArray` variable is where the number to calculate after an action is executed will be stored. The variable `saveLastOperation` is where the last executed action will be stored. The variable ``saveExecuteAnOperation` will be used to know when the user clicked on an action:
+
+```
+let userUseComma = false;
+let resultArray = [];
+let saveLastOperation = "";
+let saveExecuteAnOperation = false;
+```
+
+In this code block, we are going to go through all the buttons and to each button we will assign the function `getButtonFunction` when you click on any button it will execute that function:
+
+```
+btnsCalculator.forEach((btn) => {
+  btn.addEventListener("click", (e) => getButtonFunction(e));
+});
+```
+
+We will get the ID of the element that was clicked. If the element is a number, the number will be displayed on the screen. In case it is not a number it will execute a switch to know what action the user executed, if a comma, add, subtract, etc. If it was an action such as add, subtract, multiply or divide to know the result it will execute the result of the function `resultOfOperation()` that receives two numbers and the string of the operation to be performed. Pressing the equal will return the result, pressing `AC` will erase the number and pressing `CE` will erase one by one the last digit entered:
+
+```
+const getButtonFunction = (e) => {
+  const btnId = e.target.id;
+
+  if (parseFloat(btnId) || btnId === "0") {
+    if (windowCalculator.textContent === "0" || saveExecuteAnOperation) {
+      windowCalculator.textContent = btnId;
+      saveExecuteAnOperation = false;
+      return;
+    }
+
+    windowCalculator.textContent += btnId;
+    return;
+  }
+
+  switch (btnId) {
+    case "+":
+      userUseComma = false;
+      if (resultArray.length === 0) {
+        resultArray.push(windowCalculator.textContent);
+        windowCalculator.textContent = "0";
+        saveLastOperation = "+";
+      } else {
+        windowCalculator.textContent = resultOfOperation(
+          resultArray[0],
+          windowCalculator.textContent,
+          saveLastOperation
+        );
+
+        saveLastOperation = "+";
+        resultArray = [windowCalculator.textContent];
+        saveExecuteAnOperation = true;
+      }
+
+      break;
+    case "-":
+      userUseComma = false;
+
+      if (resultArray.length === 0) {
+        resultArray.push(windowCalculator.textContent);
+        windowCalculator.textContent = "0";
+        saveLastOperation = "-";
+      } else {
+        windowCalculator.textContent = resultOfOperation(
+          resultArray[0],
+          windowCalculator.textContent,
+          saveLastOperation
+        );
+        saveLastOperation = "-";
+        resultArray = [windowCalculator.textContent];
+        saveExecuteAnOperation = true;
+      }
+
+      break;
+
+    case "/":
+      userUseComma = false;
+
+      if (resultArray.length === 0) {
+        resultArray.push(windowCalculator.textContent);
+        windowCalculator.textContent = "0";
+        saveLastOperation = "/";
+      } else {
+        windowCalculator.textContent = resultOfOperation(
+          resultArray[0],
+          windowCalculator.textContent,
+          saveLastOperation
+        );
+        saveLastOperation = "/";
+        resultArray = [windowCalculator.textContent];
+        saveExecuteAnOperation = true;
+      }
+
+      break;
+
+    case "x":
+      userUseComma = false;
+
+      if (resultArray.length === 0) {
+        resultArray.push(windowCalculator.textContent);
+        windowCalculator.textContent = "0";
+        saveLastOperation = "x";
+      } else {
+        windowCalculator.textContent = resultOfOperation(
+          resultArray[0],
+          windowCalculator.textContent,
+          saveLastOperation
+        );
+        saveLastOperation = "x";
+        resultArray = [windowCalculator.textContent];
+        saveExecuteAnOperation = true;
+      }
+
+      break;
+
+    case "%":
+      userUseComma = false;
+      if (resultArray.length === 0) {
+        resultArray.push(windowCalculator.textContent);
+      }
+      windowCalculator.textContent = `${parseFloat(resultArray[0]) / 100}`;
+      resultArray = [];
+      saveExecuteAnOperation = true;
+      break;
+
+    case "ce":
+      userUseComma = false;
+      windowCalculator.textContent = "0";
+
+      break;
+
+    case "ac":
+      if (
+        windowCalculator.textContent === "0" ||
+        windowCalculator.textContent.length === 0 ||
+        windowCalculator.textContent.length === 1
+      ) {
+        windowCalculator.textContent = "0";
+      } else if (windowCalculator.textContent.length > 0) {
+        windowCalculator.textContent = windowCalculator.textContent.slice(
+          0,
+          -1
+        );
+      }
+
+      break;
+    case "=":
+      userUseComma = false;
+      if (resultArray.length === 0) {
+        windowCalculator.textContent = windowCalculator.textContent;
+      } else {
+        windowCalculator.textContent = resultOfOperation(
+          resultArray[0],
+          windowCalculator.textContent,
+          saveLastOperation
+        );
+
+        resultArray = [];
+        saveExecuteAnOperation = true;
+      }
+
+      break;
+    default:
+      if (!userUseComma) {
+        windowCalculator.textContent += btnId;
+        userUseComma = true;
+      }
+      break;
+  }
+};
+
+```
