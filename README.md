@@ -37,13 +37,11 @@ I made a web page that has a calculator to use. This calculator can add, subtrac
 
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Calculator%20page`
+`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Calculator%20Page`
 
 ## Video
 
-
 https://user-images.githubusercontent.com/99032604/200717158-6b4fc49c-3a07-46f6-81cd-fdfab60ed0b8.mp4
-
 
 ## Documentation
 
