@@ -23,21 +23,9 @@ I made a web page that has a calculator to use. This calculator can add, subtrac
 2. CSS3
 3. HTML5
 
-## Galery
-
-![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS2-0.jpg)
-
-![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS2-1.jpg)
-
-![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS2-2.jpg)
-
-![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS2-3.jpg)
-
-![Calculator](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/CalculadoraJS2-4.jpg)
-
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Calculator%20Page`
+[`https://www.diegolibonati.com.ar/#/project/82`](https://www.diegolibonati.com.ar/#/project/82)
 
 ## Video
 
