@@ -36,7 +36,7 @@ I made a web page that has a calculator to use. This calculator can add, subtrac
 
 ## Video
 
-https://user-images.githubusercontent.com/99032604/200717158-6b4fc49c-3a07-46f6-81cd-fdfab60ed0b8.mp4
+https://github.com/DiegoLibonati/Calculator-Page/assets/99032604/eb5de2d8-87f8-4fd1-8b2c-fdb2e182ac84
 
 ## Documentation
 
