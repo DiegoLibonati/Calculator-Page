@@ -52,13 +52,13 @@ In `btnsCalculator` we obtain all the buttons with which we are going to execute
 const btnsCalculator = document.querySelectorAll(".button") as NodeList;
 ```
 
-The `userUseComa` variable will allow us to decide when the user will be able to use comma or not. The `resultArray` variable is where the number to calculate after an action is executed will be stored. The variable `saveLastOperation` is where the last executed action will be stored. The variable ``saveExecuteAnOperation` will be used to know when the user clicked on an action:
+We declare 4 variables. Which `currentOperation` refers to the operation that was clicked. Then we have two variables which are `value1` and `value2` which are the values to calculate. And finally we have the `useEqual` which refers to when the equal is clicked:
 
 ```
-let userUseComma: boolean = false;
-let resultArray: string[] = [];
-let saveLastOperation: string = "";
-let saveExecuteAnOperation: boolean = false;
+let currentOperation: string;
+let value1: string;
+let value2: string;
+let useEqual: boolean = false;
 ```
 
 In this code block, we are going to go through all the buttons and to each button we will assign the function `getButtonFunction` when you click on any button it will execute that function:
@@ -69,17 +69,19 @@ btnsCalculator.forEach((btn) => {
 });
 ```
 
-We will get the ID of the element that was clicked. If the element is a number, the number will be displayed on the screen. In case it is not a number it will execute a switch to know what action the user executed, if a comma, add, subtract, etc. If it was an action such as add, subtract, multiply or divide to know the result it will execute the result of the function `resultOfOperation()` that receives two numbers and the string of the operation to be performed. Pressing the equal will return the result, pressing `AC` will erase the number and pressing `CE` will erase one by one the last digit entered:
+This function basically executes the function of each particular button. Through validations it knows which key is touched and which is its function:
 
 ```
 const getButtonFunction = (e: Event) => {
-  const btn = e.target as HTMLElement
+  const btn = e.target as HTMLElement;
   const btnId = btn.id;
 
-  if (parseFloat(btnId) || btnId === "0") {
-    if (windowCalculator.textContent === "0" || saveExecuteAnOperation) {
+  if (btnId === "." && windowCalculator.textContent?.includes(".")) return;
+
+  if (parseInt(btnId) || btnId === "." || btnId === "0") {
+    if ((windowCalculator.textContent === "0" || useEqual) && btnId !== ".") {
       windowCalculator.textContent = btnId;
-      saveExecuteAnOperation = false;
+      useEqual = false;
       return;
     }
 
@@ -87,139 +89,52 @@ const getButtonFunction = (e: Event) => {
     return;
   }
 
-  switch (btnId) {
-    case "+":
-      userUseComma = false;
-      if (resultArray.length === 0) {
-        resultArray.push(windowCalculator.textContent!);
-        windowCalculator.textContent = "0";
-        saveLastOperation = "+";
-      } else {
-       windowCalculator.textContent =  String(resultOfOperation(
-          resultArray[0],
-          windowCalculator.textContent!,
-          saveLastOperation
-        ));
+  if (btnId === "=") {
+    useEqual = true;
 
-        saveLastOperation = "+";
-        resultArray = [windowCalculator.textContent!];
-        saveExecuteAnOperation = true;
-      }
+    if (!value1) value1 = windowCalculator.textContent!;
+    else value2 = windowCalculator.textContent!;
 
-      break;
-    case "-":
-      userUseComma = false;
+    const result = resultOfOperation(value1, value2, currentOperation);
 
-      if (resultArray.length === 0) {
-        resultArray.push(windowCalculator.textContent!);
-        windowCalculator.textContent = "0";
-        saveLastOperation = "-";
-      } else {
-        windowCalculator.textContent = String(resultOfOperation(
-          resultArray[0],
-          windowCalculator.textContent!,
-          saveLastOperation
-        ));
-        saveLastOperation = "-";
-        resultArray = [windowCalculator.textContent!];
-        saveExecuteAnOperation = true;
-      }
+    windowCalculator.textContent = Math.floor(result!)
+      ? String(result)
+      : value1
+      ? value1
+      : "0";
 
-      break;
+    value1 = null!;
+    value2 = null!;
 
-    case "/":
-      userUseComma = false;
-
-      if (resultArray.length === 0) {
-        resultArray.push(windowCalculator.textContent!);
-        windowCalculator.textContent = "0";
-        saveLastOperation = "/";
-      } else {
-        windowCalculator.textContent = String(resultOfOperation(
-          resultArray[0],
-          windowCalculator.textContent!,
-          saveLastOperation
-        ));
-        saveLastOperation = "/";
-        resultArray = [windowCalculator.textContent!];
-        saveExecuteAnOperation = true;
-      }
-
-      break;
-
-    case "x":
-      userUseComma = false;
-
-      if (resultArray.length === 0) {
-        resultArray.push(windowCalculator.textContent!);
-        windowCalculator.textContent = "0";
-        saveLastOperation = "x";
-      } else {
-        windowCalculator.textContent = String(resultOfOperation(
-          resultArray[0],
-          windowCalculator.textContent!,
-          saveLastOperation
-        ))
-        saveLastOperation = "x";
-        resultArray = [windowCalculator.textContent!];
-        saveExecuteAnOperation = true;
-      }
-
-      break;
-
-    case "%":
-      userUseComma = false;
-      if (resultArray.length === 0) {
-        resultArray.push(windowCalculator.textContent!);
-      }
-      windowCalculator.textContent = `${parseFloat(resultArray[0]) / 100}`;
-      resultArray = [];
-      saveExecuteAnOperation = true;
-      break;
-
-    case "ce":
-      userUseComma = false;
-      windowCalculator.textContent = "0";
-
-      break;
-
-    case "ac":
-      if (
-        windowCalculator.textContent === "0" ||
-        windowCalculator.textContent!.length === 0 ||
-        windowCalculator.textContent!.length === 1
-      ) {
-        windowCalculator.textContent = "0";
-      } else if (windowCalculator.textContent!.length > 0) {
-        windowCalculator.textContent = windowCalculator.textContent!.slice(
-          0,
-          -1
-        );
-      }
-
-      break;
-    case "=":
-      userUseComma = false;
-      if (resultArray.length === 0) {
-        windowCalculator.textContent = windowCalculator.textContent;
-      } else {
-        windowCalculator.textContent = String(resultOfOperation(
-          resultArray[0],
-          windowCalculator.textContent!,
-          saveLastOperation
-        ));
-
-        resultArray = [];
-        saveExecuteAnOperation = true;
-      }
-
-      break;
-    default:
-      if (!userUseComma) {
-        windowCalculator.textContent += btnId;
-        userUseComma = true;
-      }
-      break;
+    return;
   }
-};
+
+  if (btnId === "+" || btnId === "-" || btnId === "x" || btnId === "/") {
+    currentOperation = btnId;
+
+    // Ver de sacar esto afeura del if
+    if (!value1) value1 = windowCalculator.textContent!;
+  }
+
+  if (btnId === "c") {
+    windowCalculator.textContent = "0";
+    value1 = null!;
+    value2 = null!;
+    currentOperation = null!;
+    useEqual = false;
+  }
+
+  if (btnId === "ce") {
+    windowCalculator.textContent = "0";
+  }
+
+  if (btnId === "%") {
+    windowCalculator.textContent = String(
+      parseFloat(windowCalculator.textContent!) / 100
+    );
+    return
+  }
+
+  windowCalculator.textContent = "0";
+}
 ```
