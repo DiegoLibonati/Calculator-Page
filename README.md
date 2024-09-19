@@ -1,4 +1,4 @@
-# Calculator-Page
+# Calculator Page
 
 ## Getting Started
 
@@ -32,7 +32,7 @@ I made a web page that has a calculator to use. This calculator can add, subtrac
 
 ## Portfolio Link
 
-[`https://www.diegolibonati.com.ar/#/project/82`](https://www.diegolibonati.com.ar/#/project/82)
+[`https://www.diegolibonati.com.ar/#/project/Calculator-Page`](https://www.diegolibonati.com.ar/#/project/Calculator-Page)
 
 ## Video
 
