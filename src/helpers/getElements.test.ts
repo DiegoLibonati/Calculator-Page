@@ -1,21 +1,25 @@
 import { getElements } from "./getElements";
 
-import { OFFICIAL_BODY } from "../tests/jest.setup";
+import { OFFICIAL_BODY } from "../tests/jest.constants";
 
-beforeEach(() => {
-  document.body.innerHTML = OFFICIAL_BODY;
-});
+describe("getElements.ts", () => {
+  describe("General Tests.", () => {
+    beforeEach(() => {
+      document.body.innerHTML = OFFICIAL_BODY;
+    });
 
-afterEach(() => {
-  document.body.innerHTML = "";
-});
+    afterEach(() => {
+      document.body.innerHTML = "";
+    });
 
-test("It must render the elements of the document that the 'getElements' function exports.", () => {
-  const { btnsCalculator, windowCalculator } = getElements();
+    test("It must render the elements of the document that the 'getElements' function exports.", () => {
+      const { btnsCalculator, windowCalculator } = getElements();
 
-  expect(windowCalculator).toBeInTheDocument();
+      expect(windowCalculator).toBeInTheDocument();
 
-  for (let btnCalculator of btnsCalculator) {
-    expect(btnCalculator).toBeInTheDocument();
-  }
+      for (let btnCalculator of btnsCalculator) {
+        expect(btnCalculator).toBeInTheDocument();
+      }
+    });
+  });
 });
