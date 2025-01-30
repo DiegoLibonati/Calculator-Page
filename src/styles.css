@@ -1,4 +1,4 @@
-.main__wrapper {
+.main-calculator {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +32,7 @@
   overflow: hidden;
 }
 
-.btns {
+.actions {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -45,7 +45,7 @@
   justify-content: space-between;
 }
 
-.button {
+.actions__action {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,12 +57,12 @@
   font-size: 2.5rem;
 }
 
-.button--red {
+.actions__action--red {
   background-color: var(--red-color);
   color: var(--white-color);
 }
 
-.button--plus {
+.actions__action--plus {
   align-self: flex-start;
   height: 11.9rem;
   grid-column: 5/6;
