@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/dom";
 import user from "@testing-library/user-event";
 
-import { OFFICIAL_BODY } from "../tests/jest.constants";
+import { OFFICIAL_BODY } from "@tests/jest.constants";
 
 describe("index.ts", () => {
   describe("General Tests.", () => {
@@ -17,9 +17,7 @@ describe("index.ts", () => {
     });
 
     test("It must render the screen and all available buttons on the calculator.", () => {
-      const calculatorScreen = document.querySelector(
-        ".mirror__window"
-      );
+      const calculatorScreen = document.querySelector(".mirror__window");
       const buttons = screen.getAllByRole("button");
 
       expect(calculatorScreen).toBeInTheDocument();
@@ -33,9 +31,7 @@ describe("index.ts", () => {
     });
 
     test("It must render the result of a sum on the screen when that operation is performed.", async () => {
-      const calculatorScreen = document.querySelector(
-        ".mirror__window"
-      );
+      const calculatorScreen = document.querySelector(".mirror__window");
       const btnTwo = screen.getByRole("button", { name: "2" });
       const btnPlus = screen.getByRole("button", { name: "+" });
       const btnEqual = screen.getByRole("button", { name: "=" });
@@ -64,9 +60,7 @@ describe("index.ts", () => {
     });
 
     test("It must render the result of a subtraction on the screen when that operation is performed.", async () => {
-      const calculatorScreen = document.querySelector(
-        ".mirror__window"
-      );
+      const calculatorScreen = document.querySelector(".mirror__window");
       const btnTwo = screen.getByRole("button", { name: "2" });
       const btnSubstraction = screen.getByRole("button", { name: "-" });
       const btnEqual = screen.getByRole("button", { name: "=" });
@@ -95,9 +89,7 @@ describe("index.ts", () => {
     });
 
     test("It must render the result of a split on the screen when the split operation is performed.", async () => {
-      const calculatorScreen = document.querySelector(
-        ".mirror__window"
-      );
+      const calculatorScreen = document.querySelector(".mirror__window");
       const btnTwo = screen.getByRole("button", { name: "2" });
       const btnSplit = screen.getByRole("button", { name: "/" });
       const btnEqual = screen.getByRole("button", { name: "=" });
@@ -126,9 +118,7 @@ describe("index.ts", () => {
     });
 
     test("It must render the result of a multiplication on the screen when that operation is performed.", async () => {
-      const calculatorScreen = document.querySelector(
-        ".mirror__window"
-      );
+      const calculatorScreen = document.querySelector(".mirror__window");
       const btnTwo = screen.getByRole("button", { name: "2" });
       const btnMultiplication = screen.getByRole("button", { name: "x" });
       const btnEqual = screen.getByRole("button", { name: "=" });
@@ -157,9 +147,7 @@ describe("index.ts", () => {
     });
 
     test("It must render the result of a percentage on the screen when this operation is performed.", async () => {
-      const calculatorScreen = document.querySelector(
-        ".mirror__window"
-      );
+      const calculatorScreen = document.querySelector(".mirror__window");
       const btnTwo = screen.getByRole("button", { name: "2" });
       const btnPercentage = screen.getByRole("button", { name: "%" });
       const btnEqual = screen.getByRole("button", { name: "=" });

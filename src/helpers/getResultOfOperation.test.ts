@@ -1,4 +1,4 @@
-import { getResultOfOperation } from "./getResultOfOperation";
+import { getResultOfOperation } from "@src/helpers/getResultOfOperation";
 
 describe("getResultOfOperation.ts", () => {
   describe("General Tests.", () => {

@@ -1,7 +1,7 @@
-import { BtnPressed, Number, Operation, Special } from "./entities/vite-env";
+import { BtnPressed, Number, Operation, Special } from "@src/entities/vite-env";
 
-import { getElements } from "./helpers/getElements";
-import { getResultOfOperation } from "./helpers/getResultOfOperation";
+import { getElements } from "@src/helpers/getElements";
+import { getResultOfOperation } from "@src/helpers/getResultOfOperation";
 
 const numbers: Number[] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const operations: Operation[] = ["+", "-", "/", "x"];
