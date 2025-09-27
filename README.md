@@ -22,6 +22,7 @@ I made a web page that has a calculator to use. This calculator can add, subtrac
 1. Typescript
 2. CSS3
 3. HTML5
+4. Vite
 
 ## Libraries used
 
