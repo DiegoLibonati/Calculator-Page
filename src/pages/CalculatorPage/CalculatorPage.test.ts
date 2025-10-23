@@ -31,13 +31,13 @@ describe("CalculatorPage.ts", () => {
       expect(container).toBeInstanceOf(HTMLDivElement);
       expect(container.className).toBe("calculator");
       expect(
-        container.querySelector(".calculator__mirror")
+        container.querySelector<HTMLDivElement>(".calculator__mirror")
       ).toBeInTheDocument();
       expect(
-        container.querySelector(".calculator__window")
+        container.querySelector<HTMLDivElement>(".calculator__window")
       ).toBeInTheDocument();
       expect(
-        container.querySelector(".calculator__actions")
+        container.querySelector<HTMLDivElement>(".calculator__actions")
       ).toBeInTheDocument();
     });
 
