@@ -1,4 +1,4 @@
-import { Number as NumberT, Operation, Special } from "@src/entities/app";
+import type { Number as NumberT, Operation, Special } from "@/types/app";
 
 export const numbers: NumberT[] = [
   "0",

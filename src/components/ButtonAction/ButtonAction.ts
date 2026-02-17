@@ -1,6 +1,7 @@
-import { ButtonActionProps } from "@src/entities/props";
+import type { ButtonActionProps } from "@/types/props";
+import type { ButtonActionComponent } from "@/types/components";
 
-import "@src/components/ButtonAction/ButtonAction.css";
+import "@/components/ButtonAction/ButtonAction.css";
 
 export const ButtonAction = ({
   id,
@@ -8,15 +9,23 @@ export const ButtonAction = ({
   children,
   className,
   onClick,
-}: ButtonActionProps): HTMLButtonElement => {
-  const button = document.createElement("button");
+}: ButtonActionProps): ButtonActionComponent => {
+  const button = document.createElement("button") as ButtonActionComponent;
   button.className = `button-action ${className ?? ""}`;
   button.type = "button";
   button.id = id;
   button.setAttribute("aria-label", ariaLabel);
   button.innerHTML = children ?? "";
 
-  button.addEventListener("click", (e) => onClick(e));
+  const handleClick = (e: MouseEvent): void => {
+    onClick(e);
+  };
+
+  button.addEventListener("click", handleClick);
+
+  button.cleanup = (): void => {
+    button.removeEventListener("click", handleClick);
+  };
 
   return button;
 };
