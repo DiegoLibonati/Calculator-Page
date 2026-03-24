@@ -47,20 +47,28 @@ describe("CalculatorPage", () => {
   it("should render all operation buttons", () => {
     renderPage();
 
-    expect(screen.getByRole("button", { name: "+" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "-" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "x" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "/" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Add" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Subtract" })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Multiply" })
+    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Divide" })).toBeInTheDocument();
   });
 
   it("should render special buttons", () => {
     renderPage();
 
-    expect(screen.getByRole("button", { name: "c" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "ce" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "=" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "." })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "%" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Clear" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Clear entry" })
+    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Equals" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Decimal point" })
+    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Percent" })).toBeInTheDocument();
   });
 
   it("should display number when number button is clicked", async () => {
@@ -95,9 +103,9 @@ describe("CalculatorPage", () => {
     renderPage();
 
     await user.click(screen.getByRole("button", { name: "5" }));
-    await user.click(screen.getByRole("button", { name: "+" }));
+    await user.click(screen.getByRole("button", { name: "Add" }));
     await user.click(screen.getByRole("button", { name: "3" }));
-    await user.click(screen.getByRole("button", { name: "=" }));
+    await user.click(screen.getByRole("button", { name: "Equals" }));
 
     const window = document.querySelector<HTMLDivElement>(
       ".calculator__window"
@@ -111,9 +119,9 @@ describe("CalculatorPage", () => {
 
     await user.click(screen.getByRole("button", { name: "1" }));
     await user.click(screen.getByRole("button", { name: "0" }));
-    await user.click(screen.getByRole("button", { name: "-" }));
+    await user.click(screen.getByRole("button", { name: "Subtract" }));
     await user.click(screen.getByRole("button", { name: "4" }));
-    await user.click(screen.getByRole("button", { name: "=" }));
+    await user.click(screen.getByRole("button", { name: "Equals" }));
 
     const window = document.querySelector<HTMLDivElement>(
       ".calculator__window"
@@ -126,9 +134,9 @@ describe("CalculatorPage", () => {
     renderPage();
 
     await user.click(screen.getByRole("button", { name: "6" }));
-    await user.click(screen.getByRole("button", { name: "x" }));
+    await user.click(screen.getByRole("button", { name: "Multiply" }));
     await user.click(screen.getByRole("button", { name: "7" }));
-    await user.click(screen.getByRole("button", { name: "=" }));
+    await user.click(screen.getByRole("button", { name: "Equals" }));
 
     const window = document.querySelector<HTMLDivElement>(
       ".calculator__window"
@@ -142,9 +150,9 @@ describe("CalculatorPage", () => {
 
     await user.click(screen.getByRole("button", { name: "2" }));
     await user.click(screen.getByRole("button", { name: "0" }));
-    await user.click(screen.getByRole("button", { name: "/" }));
+    await user.click(screen.getByRole("button", { name: "Divide" }));
     await user.click(screen.getByRole("button", { name: "4" }));
-    await user.click(screen.getByRole("button", { name: "=" }));
+    await user.click(screen.getByRole("button", { name: "Equals" }));
 
     const window = document.querySelector<HTMLDivElement>(
       ".calculator__window"
@@ -157,7 +165,7 @@ describe("CalculatorPage", () => {
     renderPage();
 
     await user.click(screen.getByRole("button", { name: "5" }));
-    await user.click(screen.getByRole("button", { name: "ce" }));
+    await user.click(screen.getByRole("button", { name: "Clear entry" }));
 
     const window = document.querySelector<HTMLDivElement>(
       ".calculator__window"
@@ -170,9 +178,9 @@ describe("CalculatorPage", () => {
     renderPage();
 
     await user.click(screen.getByRole("button", { name: "5" }));
-    await user.click(screen.getByRole("button", { name: "+" }));
+    await user.click(screen.getByRole("button", { name: "Add" }));
     await user.click(screen.getByRole("button", { name: "3" }));
-    await user.click(screen.getByRole("button", { name: "c" }));
+    await user.click(screen.getByRole("button", { name: "Clear" }));
 
     const window = document.querySelector<HTMLDivElement>(
       ".calculator__window"
@@ -185,7 +193,7 @@ describe("CalculatorPage", () => {
     renderPage();
 
     await user.click(screen.getByRole("button", { name: "5" }));
-    await user.click(screen.getByRole("button", { name: "." }));
+    await user.click(screen.getByRole("button", { name: "Decimal point" }));
     await user.click(screen.getByRole("button", { name: "5" }));
 
     const window = document.querySelector<HTMLDivElement>(
@@ -199,8 +207,8 @@ describe("CalculatorPage", () => {
     renderPage();
 
     await user.click(screen.getByRole("button", { name: "5" }));
-    await user.click(screen.getByRole("button", { name: "." }));
-    await user.click(screen.getByRole("button", { name: "." }));
+    await user.click(screen.getByRole("button", { name: "Decimal point" }));
+    await user.click(screen.getByRole("button", { name: "Decimal point" }));
     await user.click(screen.getByRole("button", { name: "5" }));
 
     const window = document.querySelector<HTMLDivElement>(
@@ -215,7 +223,7 @@ describe("CalculatorPage", () => {
 
     await user.click(screen.getByRole("button", { name: "5" }));
     await user.click(screen.getByRole("button", { name: "0" }));
-    await user.click(screen.getByRole("button", { name: "%" }));
+    await user.click(screen.getByRole("button", { name: "Percent" }));
 
     const window = document.querySelector<HTMLDivElement>(
       ".calculator__window"
@@ -228,11 +236,11 @@ describe("CalculatorPage", () => {
     renderPage();
 
     await user.click(screen.getByRole("button", { name: "5" }));
-    await user.click(screen.getByRole("button", { name: "+" }));
+    await user.click(screen.getByRole("button", { name: "Add" }));
     await user.click(screen.getByRole("button", { name: "3" }));
-    await user.click(screen.getByRole("button", { name: "+" }));
+    await user.click(screen.getByRole("button", { name: "Add" }));
     await user.click(screen.getByRole("button", { name: "2" }));
-    await user.click(screen.getByRole("button", { name: "=" }));
+    await user.click(screen.getByRole("button", { name: "Equals" }));
 
     const window = document.querySelector<HTMLDivElement>(
       ".calculator__window"

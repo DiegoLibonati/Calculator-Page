@@ -134,7 +134,7 @@ export const CalculatorPage = (): Page => {
     id: "ce",
     className: "button-action-ce button-action--red",
     children: "CE",
-    ariaLabel: "ce",
+    ariaLabel: "Clear entry",
     onClick: () => {
       onClickSpecial("ce");
     },
@@ -143,7 +143,7 @@ export const CalculatorPage = (): Page => {
     id: "c",
     className: "button-action-c button-action--red",
     children: "C",
-    ariaLabel: "c",
+    ariaLabel: "Clear",
     onClick: () => {
       onClickSpecial("c");
     },
@@ -152,7 +152,7 @@ export const CalculatorPage = (): Page => {
     id: "x",
     className: "button-action-x",
     children: "X",
-    ariaLabel: "x",
+    ariaLabel: "Multiply",
     onClick: () => {
       onClickOperation("x");
     },
@@ -161,7 +161,7 @@ export const CalculatorPage = (): Page => {
     id: "%",
     className: "button-action-%",
     children: "%",
-    ariaLabel: "%",
+    ariaLabel: "Percent",
     onClick: () => {
       onClickSpecial("%");
     },
@@ -170,7 +170,7 @@ export const CalculatorPage = (): Page => {
     id: "/",
     className: "button-action-/",
     children: "/",
-    ariaLabel: "/",
+    ariaLabel: "Divide",
     onClick: () => {
       onClickOperation("/");
     },
@@ -206,7 +206,7 @@ export const CalculatorPage = (): Page => {
     id: "=",
     className: "button-action-=",
     children: "=",
-    ariaLabel: "=",
+    ariaLabel: "Equals",
     onClick: () => {
       onClickSpecial("=");
     },
@@ -215,7 +215,7 @@ export const CalculatorPage = (): Page => {
     id: "-",
     className: "button-action--",
     children: "-",
-    ariaLabel: "-",
+    ariaLabel: "Subtract",
     onClick: () => {
       onClickOperation("-");
     },
@@ -251,7 +251,7 @@ export const CalculatorPage = (): Page => {
     id: ".",
     className: "button-action-.",
     children: ".",
-    ariaLabel: ".",
+    ariaLabel: "Decimal point",
     onClick: () => {
       onClickSpecial(".");
     },
@@ -260,7 +260,7 @@ export const CalculatorPage = (): Page => {
     id: "+",
     className: "button-action-+ button-action--plus",
     children: "+",
-    ariaLabel: "+",
+    ariaLabel: "Add",
     onClick: () => {
       onClickOperation("+");
     },
