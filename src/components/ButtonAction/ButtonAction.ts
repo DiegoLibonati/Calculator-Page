@@ -3,7 +3,7 @@ import type { ButtonActionComponent } from "@/types/components";
 
 import "@/components/ButtonAction/ButtonAction.css";
 
-export const ButtonAction = ({
+const ButtonAction = ({
   id,
   ariaLabel,
   children,
@@ -29,3 +29,5 @@ export const ButtonAction = ({
 
   return button;
 };
+
+export default ButtonAction;

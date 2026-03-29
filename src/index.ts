@@ -1,5 +1,5 @@
 import "@/index.css";
-import { CalculatorPage } from "@/pages/CalculatorPage/CalculatorPage";
+import CalculatorPage from "@/pages/CalculatorPage/CalculatorPage";
 
 const onInit = (): void => {
   const app = document.querySelector<HTMLDivElement>("#app");

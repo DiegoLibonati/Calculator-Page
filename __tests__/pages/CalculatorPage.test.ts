@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 
 import type { Page } from "@/types/pages";
 
-import { CalculatorPage } from "@/pages/CalculatorPage/CalculatorPage";
+import CalculatorPage from "@/pages/CalculatorPage/CalculatorPage";
 
 const renderPage = (): Page => {
   const container = CalculatorPage();

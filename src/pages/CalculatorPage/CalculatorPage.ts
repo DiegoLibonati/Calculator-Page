@@ -1,7 +1,7 @@
 import type { Operation, Special, Number as NumberT } from "@/types/app";
 import type { Page } from "@/types/pages";
 
-import { ButtonAction } from "@/components/ButtonAction/ButtonAction";
+import ButtonAction from "@/components/ButtonAction/ButtonAction";
 
 import { getResultOfOperation } from "@/helpers/getResultOfOperation";
 
@@ -9,7 +9,7 @@ import { operations } from "@/constants/vars";
 
 import "@/pages/CalculatorPage/CalculatorPage.css";
 
-export const CalculatorPage = (): Page => {
+const CalculatorPage = (): Page => {
   const main = document.createElement("main") as Page;
   main.className = "calculator";
 
@@ -348,3 +348,5 @@ export const CalculatorPage = (): Page => {
 
   return main;
 };
+
+export default CalculatorPage;
