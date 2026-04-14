@@ -1,4 +1,4 @@
-# Calculator Page
+# Calcify
 
 ## Educational Purpose
 
@@ -17,7 +17,15 @@ The application will open automatically at `http://localhost:3000`
 
 ## Description
 
-I made a web page that has a calculator to use. This calculator can add, subtract, multiply and divide. You can also get percentages, use negative numbers, decimal numbers and finally you can perform actions like `CE` and `AC`.
+**Calcify** is a lightweight, single-page calculator application built with vanilla TypeScript and no runtime dependencies. It runs entirely in the browser and is served through a fast Vite development server.
+
+The calculator supports the four fundamental arithmetic operations — addition, subtraction, multiplication, and division — as well as percentage conversion and decimal number input. Operations are evaluated lazily: the result is computed when the next operator or the equals key is pressed, which allows natural chaining of multiple calculations in sequence (e.g. `5 + 3 + 2 =` computes `5 + 3` first, then adds `2`).
+
+Two dedicated clear keys give fine-grained control over the calculation state: `CE` (Clear Entry) resets only the current display value while preserving the pending operator and first operand, so the user can correct a mistyped number without losing the ongoing operation; `C` (Clear) performs a full reset of all internal state, returning the calculator to its initial condition.
+
+The user interface is composed of a numeric display and a grid of buttons covering digits `0–9`, the four operators, `CE`, `C`, `=`, `%`, and a decimal point. All buttons carry descriptive ARIA labels, making the application accessible to screen readers and other assistive technologies.
+
+Internally, the codebase follows a strict factory-function component pattern: every UI element is created by a plain function that returns a typed DOM node along with a `cleanup` method responsible for removing its event listeners. There is no global state — all calculation logic lives inside the `CalcifyPage` factory function as closed-over local variables. The project ships with a full test suite written with Jest and Testing Library, enforcing a minimum 70% coverage threshold across branches, functions, lines, and statements.
 
 ## Technologies used
 
@@ -59,11 +67,7 @@ No production dependencies - Pure Vanilla TypeScript
 
 ## Portfolio Link
 
-[`https://www.diegolibonati.com.ar/#/project/Calculator-Page`](https://www.diegolibonati.com.ar/#/project/Calculator-Page)
-
-## Video
-
-https://github.com/DiegoLibonati/Calculator-Page/assets/99032604/eb5de2d8-87f8-4fd1-8b2c-fdb2e182ac84
+[`https://www.diegolibonati.com.ar/#/project/calcify`](https://www.diegolibonati.com.ar/#/project/calcify)
 
 ## Testing
 

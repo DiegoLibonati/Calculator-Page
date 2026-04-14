@@ -7,9 +7,9 @@ import { getResultOfOperation } from "@/helpers/getResultOfOperation";
 
 import { operations } from "@/constants/vars";
 
-import "@/pages/CalculatorPage/CalculatorPage.css";
+import "@/pages/CalcifyPage/CalcifyPage.css";
 
-const CalculatorPage = (): Page => {
+const CalcifyPage = (): Page => {
   const main = document.createElement("main") as Page;
   main.className = "calculator";
 
@@ -349,4 +349,4 @@ const CalculatorPage = (): Page => {
   return main;
 };
 
-export default CalculatorPage;
+export default CalcifyPage;

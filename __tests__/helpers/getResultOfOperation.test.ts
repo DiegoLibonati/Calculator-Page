@@ -1,32 +1,81 @@
 import { getResultOfOperation } from "@/helpers/getResultOfOperation";
 
 describe("getResultOfOperation", () => {
-  it("should add two numbers", () => {
-    expect(getResultOfOperation("5", "3", "+")).toBe(8);
+  describe("addition", () => {
+    it("should return the sum of two integers", () => {
+      expect(getResultOfOperation("2", "3", "+")).toBe(5);
+    });
+
+    it("should return the sum of two decimal numbers", () => {
+      expect(getResultOfOperation("1.5", "2.5", "+")).toBe(4);
+    });
+
+    it("should return a negative result when first operand is negative", () => {
+      expect(getResultOfOperation("-2", "1", "+")).toBe(-1);
+    });
+
+    it("should return the first operand when adding zero", () => {
+      expect(getResultOfOperation("7", "0", "+")).toBe(7);
+    });
   });
 
-  it("should subtract two numbers", () => {
-    expect(getResultOfOperation("10", "4", "-")).toBe(6);
+  describe("subtraction", () => {
+    it("should return the difference of two integers", () => {
+      expect(getResultOfOperation("5", "3", "-")).toBe(2);
+    });
+
+    it("should return a negative result when second operand is larger", () => {
+      expect(getResultOfOperation("3", "5", "-")).toBe(-2);
+    });
+
+    it("should return zero when both operands are equal", () => {
+      expect(getResultOfOperation("4", "4", "-")).toBe(0);
+    });
   });
 
-  it("should multiply two numbers", () => {
-    expect(getResultOfOperation("6", "7", "x")).toBe(42);
+  describe("multiplication", () => {
+    it("should return the product of two integers", () => {
+      expect(getResultOfOperation("3", "4", "x")).toBe(12);
+    });
+
+    it("should return zero when multiplying by zero", () => {
+      expect(getResultOfOperation("5", "0", "x")).toBe(0);
+    });
+
+    it("should return the product of two decimal numbers", () => {
+      expect(getResultOfOperation("1.5", "2", "x")).toBe(3);
+    });
+
+    it("should return a negative product when one operand is negative", () => {
+      expect(getResultOfOperation("-3", "4", "x")).toBe(-12);
+    });
   });
 
-  it("should divide two numbers", () => {
-    expect(getResultOfOperation("20", "4", "/")).toBe(5);
+  describe("division", () => {
+    it("should return the quotient of two integers", () => {
+      expect(getResultOfOperation("10", "2", "/")).toBe(5);
+    });
+
+    it("should return 0 when dividing by zero", () => {
+      expect(getResultOfOperation("10", "0", "/")).toBe(0);
+    });
+
+    it("should return a decimal result for non-integer division", () => {
+      expect(getResultOfOperation("1", "4", "/")).toBe(0.25);
+    });
+
+    it("should return zero when dividing zero by a number", () => {
+      expect(getResultOfOperation("0", "5", "/")).toBe(0);
+    });
   });
 
-  it("should return 0 when dividing by zero", () => {
-    expect(getResultOfOperation("10", "0", "/")).toBe(0);
-  });
+  describe("unknown operation", () => {
+    it("should return 0 for an unrecognized operation symbol", () => {
+      expect(getResultOfOperation("5", "3", "^")).toBe(0);
+    });
 
-  it("should handle decimal numbers", () => {
-    expect(getResultOfOperation("5.5", "2.5", "+")).toBe(8);
-    expect(getResultOfOperation("10.5", "2.5", "-")).toBe(8);
-  });
-
-  it("should return 0 for unknown operation", () => {
-    expect(getResultOfOperation("5", "3", "unknown")).toBe(0);
+    it("should return 0 for an empty operation string", () => {
+      expect(getResultOfOperation("5", "3", "")).toBe(0);
+    });
   });
 });
