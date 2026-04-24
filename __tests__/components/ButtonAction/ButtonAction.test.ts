@@ -67,16 +67,12 @@ describe("ButtonAction", () => {
     });
 
     it("should render with empty content when children is not provided", () => {
-      const { children: _, ...propsWithoutChildren } = defaultProps;
-      const element = ButtonAction(propsWithoutChildren);
-      document.body.appendChild(element);
+      renderComponent({ children: undefined });
       expect(screen.getByRole("button")).toHaveTextContent("");
     });
 
     it("should still have the base class when className is not provided", () => {
-      const { className: _, ...propsWithoutClassName } = defaultProps;
-      const element = ButtonAction(propsWithoutClassName);
-      document.body.appendChild(element);
+      renderComponent({ className: undefined });
       expect(screen.getByRole("button")).toHaveClass("button-action");
     });
   });

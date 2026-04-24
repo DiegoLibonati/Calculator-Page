@@ -18,6 +18,7 @@ const getDisplay = (): string =>
 describe("CalcifyPage", () => {
   afterEach(() => {
     document.body.innerHTML = "";
+    jest.clearAllMocks();
   });
 
   describe("rendering", () => {
