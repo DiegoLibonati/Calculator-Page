@@ -1,7 +1,7 @@
 {
   "name": "Calcify",
   "short_name": "Calcify",
-  "description": "Calcify is a lightweight, single-page calculator application built with vanilla TypeScript and no runtime dependencies. It runs entirely in the browser and is served through a fast Vite development server.",
+  "description": "Calcify is a lightweight, single-page calculator application built with vanilla TypeScript and no runtime dependencies.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
