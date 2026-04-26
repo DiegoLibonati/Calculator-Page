@@ -67,12 +67,12 @@ describe("ButtonAction", () => {
     });
 
     it("should render with empty content when children is not provided", () => {
-      renderComponent({ children: undefined });
+      renderComponent({ children: undefined! });
       expect(screen.getByRole("button")).toHaveTextContent("");
     });
 
     it("should still have the base class when className is not provided", () => {
-      renderComponent({ className: undefined });
+      renderComponent({ className: undefined! });
       expect(screen.getByRole("button")).toHaveClass("button-action");
     });
   });
